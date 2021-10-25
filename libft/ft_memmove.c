@@ -6,7 +6,7 @@
 /*   By: jocaetan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 13:33:03 by jocaetan          #+#    #+#             */
-/*   Updated: 2021/10/18 15:48:15 by jocaetan         ###   ########.fr       */
+/*   Updated: 2021/10/25 11:38:08 by jocaetan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,13 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	{
 		i = n;
 		while (i-- > 0)
-			*(char *)(dest + i) = *(char *)(src + i);
+			*(unsigned char *)(dest + i) = *(const unsigned char *)(src + i);
 	}
 	else
 	{
 		i = -1;
 		while (++i < n)
-			*(char *)(dest + i) = *(char *)(src + i);
+			*(unsigned char *)(dest + i) = *(const unsigned char *)(src + i);
 	}
 	return (dest);
 }

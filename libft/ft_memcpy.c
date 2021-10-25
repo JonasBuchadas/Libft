@@ -6,7 +6,7 @@
 /*   By: jocaetan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 13:32:51 by jocaetan          #+#    #+#             */
-/*   Updated: 2021/10/18 15:47:46 by jocaetan         ###   ########.fr       */
+/*   Updated: 2021/10/25 11:37:26 by jocaetan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,6 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 		return (NULL);
 	i = -1;
 	while (++i < n)
-		*(char *)(dest + i) = *(const char *)(src + i);
+		*(unsigned char *)(dest + i) = *(const unsigned char *)(src + i);
 	return (dest);
 }
