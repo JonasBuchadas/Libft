@@ -6,7 +6,7 @@
 /*   By: jocaetan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 13:36:49 by jocaetan          #+#    #+#             */
-/*   Updated: 2021/10/22 15:24:03 by jocaetan         ###   ########.fr       */
+/*   Updated: 2021/10/28 12:55:54 by jocaetan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ characters that appear after a `\0' character are not compared.
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t size)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	size_t			i;
 	size_t			maxlen;
@@ -31,7 +31,7 @@ int	ft_strncmp(const char *s1, const char *s2, size_t size)
 	else
 		maxlen = ft_strlen(s2);
 	i = -1;
-	while (++i < size && i < maxlen)
+	while (++i < n && i < maxlen)
 	{
 		c1 = s1[i];
 		c2 = s2[i];

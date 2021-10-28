@@ -6,7 +6,7 @@
 /*   By: jocaetan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 12:42:05 by jocaetan          #+#    #+#             */
-/*   Updated: 2021/10/22 14:25:48 by jocaetan         ###   ########.fr       */
+/*   Updated: 2021/10/28 10:56:47 by jocaetan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ integer received as an argument. Negative numbers must be handled.
 #include "libft.h"
 
 static char	*create_str(int n, size_t digits);
+static void	ft_revtab(void *tab, size_t size);
 
 char	*ft_itoa(int n)
 {
@@ -67,4 +68,20 @@ static char	*create_str(int n, size_t digits)
 	str[digits] = '\0';
 	ft_revtab(str, digits);
 	return (str);
+}
+
+static void	ft_revtab(void *tab, size_t size)
+{
+	size_t	start;
+	size_t	end;
+	char	temp;
+
+	start = -1;
+	end = size;
+	while (++start < --end)
+	{
+		temp = *(char *)(tab + start);
+		*(char *)(tab + start) = *(char *)(tab + end);
+		*(char *)(tab + end) = temp;
+	}
 }

@@ -6,37 +6,37 @@
 /*   By: jocaetan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 13:33:03 by jocaetan          #+#    #+#             */
-/*   Updated: 2021/10/25 11:38:08 by jocaetan         ###   ########.fr       */
+/*   Updated: 2021/10/28 12:19:49 by jocaetan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 DESCRIPTION
-The ft_memmove() function copies n bytes from memory area src to memory area
-dest. The memory areas may overlap.
+The ft_memmove() function copies len bytes from memory area src to memory area
+dst. The memory areas may overlap.
 RETURN VALUE
-The ft_memmove() function returns a pointer to dest.
+The ft_memmove() function returns a pointer to dst.
 */
 
 #include <stddef.h>
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
 	size_t	i;
 
-	if (dest == NULL && src == NULL && n != 0)
+	if (dst == NULL && src == NULL && len != 0)
 		return (NULL);
-	if (dest > src)
+	if (dst > src)
 	{
-		i = n;
+		i = len;
 		while (i-- > 0)
-			*(unsigned char *)(dest + i) = *(const unsigned char *)(src + i);
+			*(unsigned char *)(dst + i) = *(const unsigned char *)(src + i);
 	}
 	else
 	{
 		i = -1;
-		while (++i < n)
-			*(unsigned char *)(dest + i) = *(const unsigned char *)(src + i);
+		while (++i < len)
+			*(unsigned char *)(dst + i) = *(const unsigned char *)(src + i);
 	}
-	return (dest);
+	return (dst);
 }

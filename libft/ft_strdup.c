@@ -6,7 +6,7 @@
 /*   By: jocaetan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 13:35:39 by jocaetan          #+#    #+#             */
-/*   Updated: 2021/10/25 16:18:00 by jocaetan         ###   ########.fr       */
+/*   Updated: 2021/10/28 13:39:19 by jocaetan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,19 +23,17 @@ terminating the copied string.
 #include <stdlib.h>
 #include "libft.h"
 
-char	*ft_strdup(const char *s)
+char	*ft_strdup(const char *s1)
 {
 	int		i;
 	char	*d;
-	
-	if (!s)
-		return (NULL);
-	d = (char *)malloc(sizeof(char) * ft_strlen(s) + 1);
+
+	d = (char *)malloc(sizeof(char) * ft_strlen(s1) + 1);
 	if (!d)
 		return (NULL);
 	i = -1;
-	while (s[++i])
-		d[i] = s[i];
+	while (s1[++i])
+		d[i] = s1[i];
 	d[i] = '\0';
 	return (d);
 }

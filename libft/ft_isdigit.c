@@ -6,16 +6,17 @@
 /*   By: jocaetan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 12:41:25 by jocaetan          #+#    #+#             */
-/*   Updated: 2021/10/18 12:41:27 by jocaetan         ###   ########.fr       */
+/*   Updated: 2021/10/28 11:44:30 by jocaetan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 DESCRIPTION
-These  functions  check  whether c, which must have the value of an unsigned 
-char or EOF, falls into a certain character class according to the  specified  
-locale. The functions without the "_l" suffix perform the check based on the 
-current locale.
+The isdigit() function tests for a decimal digit character.  Regardless of 
+locale, this includes the following characters only:
+
+     ``0''         ``1''         ``2''         ``3''         ``4''
+     ``5''         ``6''         ``7''         ``8''         ``9''
 */
 
 int	ft_isdigit(int c)
