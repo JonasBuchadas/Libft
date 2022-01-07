@@ -16,7 +16,10 @@ The atoi() function converts the initial portion of the string pointed to by str
 to int representation
 */
 
+#include "libft.h"
+
 static int	readnumbers(const char *str, int i, int signal);
+static int	check_overflow(const char *str, int i, int signal);
 static int	check_signal(char c);
 static int	ft_isspace(int c);
 
@@ -40,7 +43,9 @@ static int	readnumbers(const char *str, int i, int signal)
 {
 	int	result;
 
-	result = 0;
+	result = check_overflow(str, i, signal);
+	if (result != 0)
+		return (0);
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		result = (result * 10) + (str[i] - 48);
@@ -58,6 +63,34 @@ static int	check_signal(char c)
 		return (1);
 	if (c == '-')
 		return (-1);
+	return (0);
+}
+
+static int	check_overflow(const char *str, int i, int signal)
+{
+	int		len;
+	int		index;
+	char	*max;
+	char	*min;
+
+	len = 0;
+	index = i;
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		len++;
+		i++;
+	}
+	i = index;
+	max = "2147483647";
+	min = "2147483648";
+	if (len < 10)
+		return (0);
+	else if (len > 10)
+		return (1);
+	else if (len == 10 && signal >= 0 && ft_strncmp(&str[i], max, 10) > 0)
+		return (1);
+	else if (len == 10 && signal < 0 && ft_strncmp(&str[i], min, 10) > 0)
+		return (1);
 	return (0);
 }
 
