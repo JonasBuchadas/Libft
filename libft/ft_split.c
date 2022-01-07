@@ -29,13 +29,10 @@ char	**ft_split(char const *s, char c)
 {
 	char	**arr;
 	size_t	i;
-	char	strc[2];
 
 	if (!s)
 		return (NULL);
 	i = -1;
-	strc[0] = c;
-	strc[1] = 0;
 	arr = add_word(NULL, s, 0, 0);
 	if (!arr)
 		return (NULL);
