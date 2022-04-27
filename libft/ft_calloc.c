@@ -17,19 +17,15 @@ are size bytes of memory each and returns a pointer to the allocated memory.
 The allocated memory is filled with bytes of value zero.
 */
 
-#include <stdlib.h>
-#include <stddef.h>
 #include "libft.h"
 
 void	*ft_calloc(size_t count, size_t size)
 {
 	void	*ptr;
-	size_t	total_size;
 
-	total_size = count * size;
-	ptr = malloc(total_size);
-	if (!ptr)
+	ptr = (void *)malloc(size * count);
+	if (ptr == NULL)
 		return (NULL);
-	ft_bzero(ptr, total_size);
+	ft_bzero(ptr, count * size);
 	return (ptr);
 }
