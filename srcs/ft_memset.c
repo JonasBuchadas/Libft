@@ -19,18 +19,14 @@
    The ft_memset() function returns a pointer to the memory area s.
  */
 
-#include "libft.h"
+#include <stddef.h>
 
 void	*ft_memset(void *b, int c, size_t len)
 {
-	char	*temp;
+	size_t	i;
 
-	if (b == 0)
-		return (NULL);
-	temp = b;
-	while (len--)
-	{
-		*temp++ = c;
-	}
+	i = -1;
+	while (++i < len)
+		*(unsigned char *)(b + i) = (unsigned char)c;
 	return (b);
 }

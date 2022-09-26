@@ -17,9 +17,13 @@ at the location pointed to by s, by writing zeros (bytes containing '\0')
 to that area.
 */
 
-#include "libft.h"
+#include <stddef.h>
 
 void	ft_bzero(void *s, size_t n)
 {
-	ft_memset(s, '\0', n);
+	size_t	i;
+
+	i = 0;
+	while (i < n)
+		*(unsigned char *)(s + i++) = '\0';
 }

@@ -24,14 +24,17 @@ character does not occur in the given memory area.
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	size_t		i;
+	size_t			i;
+	unsigned char	c1;
+	unsigned char	c2;
 
-	i = 0;
-	while (i < n)
-	{
-		if (*((unsigned char *)s + i) == (unsigned char)c)
+	i = -1;
+	c2 = c;
+	while (++i < n)
+	{	
+		c1 = *(unsigned char *)(s + i);
+		if (c1 == c2)
 			return ((void *)(s + i));
-		i++;
 	}
 	return (NULL);
 }

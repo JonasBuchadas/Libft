@@ -20,21 +20,27 @@ Since the strnstr() function is a FreeBSD specific API, it should only be used
 when portability is not a concern.
 */
 
-#include "libft.h"
+#include <stddef.h>
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	unsigned int	i;
+	size_t			i;
+	size_t			j;
 
-	i = ft_strlen(needle);
-	if (i == 0)
+	if (!*needle)
 		return ((char *)haystack);
-	while (len >= i && ft_strlen(haystack) != 0)
+	i = -1;
+	while (haystack[++i] && i < len)
 	{
-		len--;
-		if (!ft_memcmp(haystack, needle, i))
-			return ((char *)haystack);
-		haystack++;
+		if (haystack[i] == needle[0])
+		{
+			j = 0;
+			while ((i + j) < len && needle[j] && haystack[i + j]
+				&& needle[j] == haystack[i + j])
+				j++;
+			if (!needle[j])
+				return ((char *)&haystack[i]);
+		}
 	}
-	return (NULL);
+	return (0);
 }

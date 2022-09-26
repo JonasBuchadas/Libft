@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_strequal.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jocaetan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/18 12:37:14 by jocaetan          #+#    #+#             */
-/*   Updated: 2021/10/28 13:38:03 by jocaetan         ###   ########.fr       */
+/*   Created: 2022/04/28 10:03:04 by jocaetan          #+#    #+#             */
+/*   Updated: 2022/04/28 10:03:09 by jocaetan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-DESCRIPTION
-The calloc() function contiguously allocates enough space for count objects that
-are size bytes of memory each and returns a pointer to the allocated memory. 
-The allocated memory is filled with bytes of value zero.
-*/
-
 #include "libft.h"
 
-void	*ft_calloc(size_t count, size_t size)
+bool	ft_strequal(char *s1, char *s2)
 {
-	void	*ptr;
-
-	ptr = (void *)malloc(size * count);
-	if (ptr == NULL)
-		return (NULL);
-	ft_bzero(ptr, count * size);
-	return (ptr);
+	if (!s1 || !s2)
+		return (false);
+	if (ft_strlen(s1) != ft_strlen(s2))
+		return (false);
+	if (ft_strncmp(s1, s2, ft_strlen(s1)) == 0)
+		return (true);
+	return (false);
 }

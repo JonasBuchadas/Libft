@@ -6,7 +6,7 @@
 /*   By: jocaetan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 13:38:37 by jocaetan          #+#    #+#             */
-/*   Updated: 2021/10/28 15:40:25 by jocaetan         ###   ########.fr       */
+/*   Updated: 2021/11/29 14:44:14 by jocaetan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,26 @@
 # define LIBFT_H
 
 # include <stddef.h>
+# include <unistd.h>
+# include <stdarg.h>
 # include <stdlib.h>
+# include <stdbool.h>
 
 typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
 }					t_list;
+
+typedef struct d_list
+{
+	void			*content;
+	struct d_list	*next;
+	struct d_list	*prev;
+}					t_dlist;
+
+# define BUFFER_SIZE 1
+
 // MANDATORY PROTOTYPES
 int		ft_atoi(const char *str);
 void	ft_bzero(void *s, size_t n);
@@ -56,7 +69,7 @@ char	*ft_itoa(int n);
 char	**ft_split(char const *s, char c);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void	ft_striteri(char *s, void (*f)(unsigned int, char *));
-//	BONUS PROTOTYPES
+// LINKED LIST PROTOTYPES
 t_list	*ft_lstnew(void *content);
 int		ft_lstsize(t_list *lst);
 t_list	*ft_lstlast(t_list *lst);
@@ -66,5 +79,22 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
-
+// CIRCULAR DOUBLE LINKED LISTS PROTOTYPES
+t_dlist	*ft_cdlstnew(void *content);
+void	ft_cdlstadd_back(t_dlist **lst, t_dlist *new);
+void	ft_cdlstadd_front(t_dlist **lst, t_dlist *new);
+int		ft_cdlstsize(t_dlist *lst);
+t_dlist	*ft_cdlstlast(t_dlist *lst);
+void	ft_cdlstdelone(t_dlist *lst, void (*del)(void *));
+void	ft_cdlstclear(t_dlist **lst, void (*del)(void *));
+void	ft_cdlstiter(t_dlist *lst, void (*f)(void *));
+// ADDITIONAL PROTOTYPES
+char	*get_next_line(int fd);
+void	ft_sort_int_tab(int *tab, int size);
+int		ft_min_int(int n, ...);
+int		ft_max_int(int n, ...);
+bool	ft_strequal(char *s1, char *s2);
+void	ft_strarray_clear(char ***str_array);
+void	ft_strdel(char **str);
+void	ft_memdel(void **mem);
 #endif
