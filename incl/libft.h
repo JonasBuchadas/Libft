@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jocaetan <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jocaetan <jocaetan@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 13:38:37 by jocaetan          #+#    #+#             */
-/*   Updated: 2021/11/29 14:44:14 by jocaetan         ###   ########.fr       */
+/*   Updated: 2023/01/16 22:05:29 by jocaetan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ typedef struct d_list
 
 // MANDATORY PROTOTYPES
 int		ft_atoi(const char *str);
+long	ft_atol(const char *str);
 void	ft_bzero(void *s, size_t n);
 void	*ft_calloc(size_t count, size_t size);
 int		ft_isalnum(int c);
