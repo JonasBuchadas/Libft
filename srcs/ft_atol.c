@@ -6,7 +6,7 @@
 /*   By: jocaetan <jocaetan@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 13:50:50 by jocaetan          #+#    #+#             */
-/*   Updated: 2023/01/16 23:40:35 by jocaetan         ###   ########.fr       */
+/*   Updated: 2023/01/17 22:46:07 by jocaetan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ long	ft_atol(const char *str)
 	return (result);
 }
 
-static long readnumbers(const char *str, long i, long signal)
+static long	readnumbers(const char *str, long i, long signal)
 {
 	long	result;
 
@@ -56,7 +56,7 @@ static long readnumbers(const char *str, long i, long signal)
 	return (result * signal);
 }
 
-static long check_signal(char c)
+static long	check_signal(char c)
 {
 	if (c == '+')
 		return (1);
@@ -65,7 +65,7 @@ static long check_signal(char c)
 	return (1);
 }
 
-static long check_overflow(const char *str, long i, long signal)
+static long	check_overflow(const char *str, long i, long signal)
 {
 	int		len;
 	int		index;
@@ -93,7 +93,7 @@ static long check_overflow(const char *str, long i, long signal)
 	return (0);
 }
 
-static long ft_isspace(int c)
+static long	ft_isspace(int c)
 {
 	if (c == '\t')
 		return (1);
